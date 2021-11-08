@@ -4,9 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>랜덤 숫자 뽑기</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>랜덤 숫자 뽑기(자동 캡쳐)</title>
 </head>
 <body>
-    
+    <form action="" method="post" class="">
+
+        <h1>랜덤 숫자 뽑기</h1>
+
+        <!-- 숫자 범위 -->
+        <div class="number-range input">
+            <h1>숫자 범위(range):</h1>
+            <input type="text" id="start-number">
+            <p>~</p>
+            <input type="text" id="end-number">
+        </div>
+
+        <div class="mt-1"></div>
+        
+        <!-- 숫자 개수 -->
+        <div class="input">
+            <h1>뽑을 숫자 수(count):</h1>
+            <input type="text" id="number-count">
+        </div>
+        
+        <div class="mt-1"></div>
+
+        <!-- 결과 -->
+        <div class="result" id="capture">
+            
+        </div>
+    </form>
+
+    <!-- <div id="capture" style="padding: 10px; background: #f5da55">
+        <h4 style="color: #000; ">Hello world!</h4>
+    </div> -->
+    <button type="button" onclick="takeCapture();">뽑기(pull up)</button>
+    <script src="/html2canvas.js"></script>
 </body>
 </html>
+
+<script>
+    function takeCapture() {
+        html2canvas(document.querySelector("#capture")).then(canvas => {
+            saveAs(canvas.toDataURL('image/png'),"capture-test.png");
+        });
+    }
+    function saveAs(uri, filename) {
+        // 캡쳐된 파일을 이미지 파일로 내보낸다.
+        var link = document.createElement('a');
+
+        if (typeof link.download === 'string') {
+            link.href = uri;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+        else {
+            window.open(uri);
+        }
+    }
+</script>

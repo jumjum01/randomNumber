@@ -1,0 +1,25 @@
+.input {
+    display: flex;
+    width: 100%;
+    height: fit-content;
+}
+
+.input>h1 {
+    margin: 0;
+    margin-right: 0.6em;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.input>input {
+    width: 5em;
+}
+
+.input>p {
+    margin: 0;
+    padding: 0 0.3em;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
